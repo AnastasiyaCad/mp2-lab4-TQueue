@@ -3,7 +3,7 @@
 
 TEST(TQueue, can_create_queue)
 {
-	ASSERT_NO_THROW(TQueue<int> p(5));
+	ASSERT_NO_THROW(TQueue<int> p(4));
 }
 
 TEST(TQueue, cant_create_queue_with_negative_size)
