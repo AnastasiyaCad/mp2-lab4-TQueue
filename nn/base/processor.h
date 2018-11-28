@@ -1,11 +1,12 @@
 #ifndef __TJOBSTREAM_H__
 #define __TJOBSTREAM_H__
 
-#include "queue.h"
 #include<list>
 #include<iostream>
 #include<cstdlib>
 #include<iterator>
+
+#include "queue.h"
 
 using namespace std;
 

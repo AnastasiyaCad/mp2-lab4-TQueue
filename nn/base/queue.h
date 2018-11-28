@@ -12,33 +12,35 @@ class TQueue
 	int end;
 	int DataCount;
 public:
-	TQueue() : {
+	TQueue()
+	{
 		MemSize = MaxQueueSize; 
 		DataCount = 0;
 		begin = 0;
 		end = 0;
 		pMem = new T[MemSize];
 	}
-	TQueue(int _MemSize) : 
+	TQueue(int _MemSize)
 	{
-		if ((_MemSize > 1) && (_MemSize <= MaxQueueSize) {
+		if ((_MemSize > 1) && (_MemSize <= MaxQueueSize))
+		{
 			MemSize = _MemSize;
 				DataCount = 0;
 				begin = 0;
 				end = 0;
 				pMem = new T[MemSize];
 		}
-		else throw size;
+		else throw "size";
 	}
 
-	TQueue<T>::TQueue(const TQueue<T> &_TQueue) // онструктор копировани€.
-	{
-		MemSize = _TStack.MemSize;
-		DataCount = _TStack.DataCount;
-		begin = _TStack.begin;
-		end = _TStack.end;
-		pMem = new T[MemSize];
-	}
+	//TQueue<T>::TQueue(const TQueue<T> &_TQueue) // онструктор копировани€.
+	//{
+	//	MemSize = _TStack.MemSize;
+	//	DataCount = _TStack.DataCount;
+	//	begin = _TStack.begin;
+	//	end = _TStack.end;
+	//	pMem = new T[MemSize];
+	//}
 
 	/*TQueue<T>& TQueue<T>::operator=(const TQueue<T> &_TQueue)//оператор присваивани€
 	{
@@ -90,7 +92,7 @@ public:
 			if (end > MemSize-1)
 				end = 0; //end -= MemSize + 1;
 		}
-		else throw "ERROR! The queue is full "
+		else throw "ERROR! The queue is full ";
 	}
 
 	T GetElement()
@@ -104,12 +106,12 @@ public:
 	}
 
 	T Check() {
-		if (!IsEmpty()) return pMen[begin];
+		if (!IsEmpty()) return pMem[begin];
 		else throw "error";
 	}
 
 	int Size() { return DataCount;}
 
-}
+};
 
 #endif
