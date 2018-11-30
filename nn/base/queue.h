@@ -95,10 +95,7 @@ public:
 		else throw "ERROR! The queue is full ";
 	}
 
-	T GetElement()
-	{
-		return pMem[begin];
-	}
+	
 
 	int GetNextIndex(int index)
 	{

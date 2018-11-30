@@ -39,7 +39,7 @@ class TCPU
 public:
 	Task TaskGeneration();
 	void Wait(int Tact, TQueue<Task> &q, Processor &pr);
-	void ProcWork(int _size, int _time, int _core, double _IntensityProc, double _IntensityQueue);
+	//void ProcWork(int _size, int _time, int _core, double _IntensityProc, double _IntensityQueue);
 	void Print(int TaskKolProst, int ProstoyQ, int ProstoyPr, int Time, int completed, int NumberOfCycle)
 	{
 		cout << "Statistics:" << endl;
@@ -56,6 +56,7 @@ public:
 		cout << "Task comleted: " << completed << endl;
 		cout << "Total cycles: " << NumberOfCycle << endl;
 	}
+	void ProcWork(int _size, int _time, int _core, double _IntensityProc, double _IntensityQueue);
 };
 
 #endif
