@@ -5,8 +5,6 @@
 Task TCPU::TaskGeneration() 
 {
 	srand((unsigned int)time(NULL));
-//	double num = rand();
-	//double x = num / RAND_MAX;
 	int num = rand() % 9 + 1;
 	if (num < (IntensityQueue))
 	{
