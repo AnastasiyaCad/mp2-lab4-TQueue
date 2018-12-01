@@ -6,7 +6,7 @@ Task TCPU::TaskGeneration()
 {
 	srand((unsigned int)time(NULL));
 	int num = rand() % 9 + 1;
-	if (num < (IntensityQueue))
+	if ((double)num / 10 < (IntensityQueue))
 	{
 		srand((unsigned int)time(NULL));
 		Task Task;
@@ -16,7 +16,7 @@ Task TCPU::TaskGeneration()
 	}
 	else
 	{
-		Task Task;
+		Task Task = {};
 		Task.Core = 0;
 		return Task;
 	}
@@ -26,15 +26,21 @@ void TCPU::Wait(int Tact, TQueue<Task> &q, Processor &pr)
 {
 	for (int i = 0; i < Tact; i++)
 	{
-		if (!q.IsFull()) {
+		if (!q.IsFull()) { //если не заполнена
 			Task taskw;
 			taskw = TaskGeneration();
 			if (taskw.Core != 0)
 				q.Push(taskw);
 		}
-		else qer++;
-		if (q.IsEmpty())
+		else
+		{
+			qer++;
+		}
+		
+		if (q.IsEmpty()) //если пуста
+		{
 			ProstoyQ++;
+		}
 		else {
 			for (int i = 0; i < q.Size(); i++)
 			{
@@ -62,8 +68,6 @@ void TCPU::Wait(int Tact, TQueue<Task> &q, Processor &pr)
 			list<Task>::iterator it;
 			for (it = pr.proc.begin(); it != pr.proc.end(); it++)
 			{
-
-
 				//it = ip.begin();
 				(*it).Tact++;
 				srand((unsigned int)time(NULL));
@@ -73,11 +77,12 @@ void TCPU::Wait(int Tact, TQueue<Task> &q, Processor &pr)
 				{
 					Task task2;
 					task2 = (*it);
+					completed++;
 					if (task2.Tact == 1)
 					{
 						continue;
 					}
-					completed++;
+				//	completed++;
 					pr.proc.erase(it);
 					pr.Core += task2.Core;
 					NumberOfCycle += task2.Tact;
@@ -86,7 +91,7 @@ void TCPU::Wait(int Tact, TQueue<Task> &q, Processor &pr)
 		}
 		else ProstoyPr++;
 	}
-	Print(TaskKolProst, ProstoyQ, ProstoyPr, Time, completed, NumberOfCycle);
+  	Print(TaskKolProst, ProstoyQ, ProstoyPr, Time, completed, NumberOfCycle);
 }
 
 
