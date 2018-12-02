@@ -42,22 +42,6 @@ public:
 	//	pMem = new T[MemSize];
 	//}
 
-	/*TQueue<T>& TQueue<T>::operator=(const TQueue<T> &_TQueue)//оператор присваивания
-	{
-		if (this == &_TQueue)
-			return*this;
-		if (size != _TQueue.size)
-		{
-			size = _TStack.size;
-			delete[]pMem;
-			pMem = new T[size];
-		}
-		top = _TStack;
-		for (int i = 0; i < size; i++)
-			pMem[i] = _TStack.pMem[i];
-		return *this;
-	}*/
-
 	~TQueue()
 	{
 		delete[] pMem;
